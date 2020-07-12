@@ -11,5 +11,7 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:author_name, :body)
   end
+
+  before_filter :require_login, except: [:create]
   
 end
